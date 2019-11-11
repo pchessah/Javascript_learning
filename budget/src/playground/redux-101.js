@@ -1,19 +1,28 @@
 import {createStore} from 'redux';
 
 //Action creators - functions that return objects/actions
-const incrementCount =(payload = {}) => {
-    return {
-        type: 'INCREMENT',
-        incrementBy: typeof payload.incrementBy === 'number' ? payload.incrementBy: 1
-    };
-};
+// const incrementCount =(payload = {}) => {
+//     return {
+//         type: 'INCREMENT',
+//         incrementBy: typeof payload.incrementBy === 'number' ? payload.incrementBy: 1
+//     };
+// };
+//const decrementCount = (payload = {}) => {
+    //     return{
+    //         type: 'DECREMENT',
+    //         decrementBy: typeof payload.decrementBy === 'number' ? payload.decrementBy: 1
+    //     };
+    // };
 
-const decrementCount = (payload = {}) => {
-    return{
-        type: 'DECREMENT',
-        decrementBy: typeof payload.decrementBy === 'number' ? payload.decrementBy: 1
-    };
-};
+const incrementCount = ({incrementBy= 1} = {}) => ({
+    type: 'INCREMENT',
+    incrementBy
+})
+
+const decrementCount = ({decrementBy=1} = {}) => ({
+    type: 'DECREMENT',
+    decrementBy
+})
 
 const setCount = (payload = {}) => {
     return{
