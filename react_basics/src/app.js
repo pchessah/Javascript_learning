@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TodoApp from './components/ToDoApp'
 
-const jsx = <TodoApp />;
 
-ReactDOM.render(jsx, document.getElementById('app'));
+
+ReactDOM.render(<TodoApp />, document.getElementById('app'));

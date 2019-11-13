@@ -1,3 +1,9 @@
+import React from "react";
+import AddOption from "./AddOption";
+import Action from "./Action";
+import Header from "./Header";
+import Options from "./Options";
+
 class TodoApp extends React.Component {
     constructor(props){
         super(props)
@@ -84,3 +90,5 @@ class TodoApp extends React.Component {
         )
     }
 }
+
+export default TodoApp;
