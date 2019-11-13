@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodoApp from './components/ToDoApp'
+import TodoApp from './components/ToDoApp';
+import 'normalize.css/normalize.css';
+import './styles/styles.scss';
 
 
 

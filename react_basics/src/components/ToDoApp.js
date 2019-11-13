@@ -3,6 +3,7 @@ import AddOption from "./AddOption";
 import Action from "./Action";
 import Header from "./Header";
 import Options from "./Options";
+import OptionModal from "./OptionModal";
 
 class TodoApp extends React.Component {
     constructor(props){
@@ -11,9 +12,15 @@ class TodoApp extends React.Component {
         this.handlePick = this.handlePick.bind(this)
         this.handleData =this.handleData.bind(this)
         this.handleDeleteOption = this.handleDeleteOption.bind(this)
+        this.handleClearSelectedOption = this.handleClearSelectedOption.bind(this);
         this.state = {
-            options: []
+            options: [],
+            selectedOption: null 
         }
+    }
+
+    handleClearSelectedOption () {
+        this.setState(() => ({selectedOption : null}))
     }
 
     handleDeleteOptions() {
@@ -37,7 +44,9 @@ class TodoApp extends React.Component {
     handlePick () {
         const randomNum = Math.floor(Math.random() * this.state.options.length);
         const option = this.state.options [randomNum];
-        alert (option);
+        this.setState(() => ({
+            selectedOption:option
+        }))
     }
     handleData (option) {
         if (!option) {
@@ -75,17 +84,30 @@ class TodoApp extends React.Component {
         const subtitle = 'Business Goals';  // const options = ['Thing one', 'Thing two', 'Thing three'];
         return (
                 <div>
-                    <Header title = {title} subtitle = {subtitle} />
+                    <Header 
+                    title = {title} subtitle = {subtitle} />
+
+                    <div className = "container"> 
                     <Action
                     hasOption = {this.state.options.length > 0}
                     handlePick = {this.handlePick}
                     />
+
+                    <div className = "widget"> 
                     <Options 
                     options = {this.state.options}
                     handleDeleteOptions = {this.handleDeleteOptions}
                     handleDeleteOption = {this.handleDeleteOption} 
                     />
+                    
                     <AddOption handleData = {this.handleData} />
+                    </div>
+                    </div>
+
+                    <OptionModal
+                    selectedOption = {this.state.selectedOption}
+                    handleClearSelectedOption = {this.handleClearSelectedOption}
+                    />
                 </div>
         )
     }
