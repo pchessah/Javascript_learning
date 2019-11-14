@@ -1,7 +1,7 @@
 .big-button {
     background: $purple;
     border: none;
-    border-bottom: .6rem solid darken($purple, 10%);
+    border-bottom: .6rem solid darken($purple, 10);
     color: white;
     font-weight: bold;
     font-size: $l-size;
@@ -23,7 +23,7 @@
     padding:$s-size;
 }
 
-button--link {
+.button--link {
     background: none;
     border: none;
     color: $off-white;
