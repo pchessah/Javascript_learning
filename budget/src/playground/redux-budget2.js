@@ -157,9 +157,9 @@ const expenseTwo = store.dispatch(addExpense ({ description: 'Swimming', amount:
 const expenseThree = store.dispatch(addExpense ({description: 'Driving', amount: 800, createdAt: 11000}));
 const expenseFour = store.dispatch(addExpense ({description: 'Living', amount: 1300}));
 
-// store.dispatch(setTextFilter('vi'));
-store.dispatch(sortByAmount());
-store.dispatch(sortByDate());
+store.dispatch(setTextFilter('vi'));
+// store.dispatch(sortByAmount());
+// store.dispatch(sortByDate());
 
 
 // store.dispatch(removeExpense({ id: expenseOne.expense.id}));
