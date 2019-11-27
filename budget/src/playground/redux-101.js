@@ -1,4 +1,5 @@
 import { createStore } from 'redux'; //creates a redux store
+import { stat } from 'fs';
 
 const defaultState = { count: 0} //defaultstate
 
@@ -12,6 +13,15 @@ const counterReducer = (state = defaultState, action) => {  //reducer
             return {
                 count: state.count - 1 //returns new state
             }
+        case 'SET':
+            return {
+                count: action.count //returns new state
+            }
+        case 'MINUSFIVE':
+            return {
+                count: state.count - 5 //returns new state
+                }
+        
         default:
             return state;
     }
@@ -31,3 +41,14 @@ store.dispatch ({    //dispatching an action,,trigger state change based on type
 store.dispatch ({    //dispatching an action,,trigger state change based on type
     type: 'DECREMENT'
 });
+
+store.dispatch ({    //dispatching an action,,trigger state change based on type
+    type: 'SET',
+    action: 250
+});
+
+store.dispatch ({    //dispatching an action,,trigger state change based on type
+    type: 'MINUSFIVE',
+});
+
+
