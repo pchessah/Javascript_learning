@@ -16,6 +16,11 @@ var firebaseConfig = {
 
    const database = firebase.database ();
 
+   export { firebase, database as default };
+
+
+   
+
 //    database.ref('expenses').push ({
 //        description: 'Rent',
 //        note: '',
