@@ -1,28 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import TodoList from '../components/Todolist'
 
 
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<TodoList />, document.getElementById("app"));
 
 
 
 
 
-// //import AddItem from "./AddItem";
-// //import List from "./List";
 
-// class App extends React.Component {
-    
-//     }
-//     render () {
-//         return (
-//             <div>
-//                 <h1> Todo App </h1>
-//                 <AddItem />
-//                 <List />
-//             </div>
-//         )
 
-//     }
-// } 
+
+
+
+
+
+
+
+
