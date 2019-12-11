@@ -1,4 +1,3 @@
-import uuid from 'uuid';
 import database from '../firebase/firebase';
 
  
@@ -48,19 +47,27 @@ export const editExpense = (id, updates) => ({
     updates
 });
 
+export const startEditExpense =(id, updates) => {
+    return (dispatch) => {
+       return database.ref(`expenses/${id}`).update (updates).then(() => {
+            dispatch(editExpense(id, updates))
+        })
+    }
+}
+
 //set expenses
 export const setExpenses =(expenses) => ({
     type: 'SET_EXPENSES',
     expenses
 })
 
-export const startSetExpenses = () => {
-    return (dispatch) => {
-        return database.ref('expenses').once('value').then((snapshot) => {
-            const expenses =[]
+export const startSetExpenses = () => {  //creating an action that returns a function
+    return (dispatch) => {  //function that takes parameter dispatch
+        return database.ref('expenses').once('value').then((snapshot) => { // ref is method to location of database, once fetches data from database ,then is a promise
+            const expenses =[] //empty array where we will put all the expenses
 
-            snapshot.forEach((childSnapshot) => {
-                expenses.push({
+            snapshot.forEach((childSnapshot) => { //performing function on each item in array, passing childsnapshot as parameter
+                expenses.push({                    //returning new array where we push each expense into array
                     id: childSnapshot.key,
                     ...childSnapshot.val()
                 })
